@@ -12,6 +12,7 @@ class Ballchasing:
         """Parent method for making GET requests."""
         url = urljoin(self.BASE_URL, endpoint)
         r = requests.get(url, headers=self.headers, params=params)
+        r.raise_for_status()
         return r.json()
 
     def ping(self):

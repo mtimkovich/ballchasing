@@ -1,6 +1,4 @@
-from ballchasing import Ballchasing
-import config
-
+"""Do math with the replays."""
 def winning_team(replay):
     """Returns which team won."""
     orange = replay['orange'].get('goals', 0)
@@ -31,15 +29,3 @@ def win_percentage(replays, name):
 
     print(f'{wins} wins, {total} played')
     print(f'Win %: {wins / total * 100:.2f}%')
-
-ballchasing = Ballchasing(token=config.API_KEY)
-SEASON2_START = '2020-12-10T00:00:00+00:00'
-
-replays = ballchasing.replays({
-    'uploader': 'me',
-    'playlist': 'ranked-standard',
-    'count': 200,
-    'replay-date-after': SEASON2_START,
-})
-
-win_percentage(replays, 'DJSwerve')
