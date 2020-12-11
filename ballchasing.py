@@ -1,6 +1,7 @@
 from urllib.parse import urljoin
 import requests
 
+
 class Ballchasing:
     BASE_URL = 'https://ballchasing.com/api/'
 

@@ -1,10 +1,13 @@
 """Do math with the replays."""
+
+
 def winning_team(replay):
     """Returns which team won."""
     orange = replay['orange'].get('goals', 0)
     blue = replay['blue'].get('goals', 0)
 
     return 'orange' if orange > blue else 'blue'
+
 
 def which_team(replay, name):
     """Return which team `name` is on."""
@@ -13,6 +16,7 @@ def which_team(replay, name):
         for p in players:
             if p['name'] == name:
                 return team
+
 
 def win_percentage(replays, name):
     wins = 0
