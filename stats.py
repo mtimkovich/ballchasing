@@ -9,21 +9,22 @@ def winning_team(replay):
     return 'orange' if orange > blue else 'blue'
 
 
-def which_team(replay, name):
-    """Return which team `name` is on."""
+def which_team(replay):
+    """Return which team the uploader was on."""
     for team in ['orange', 'blue']:
+        uploader = replay['uploader']['name']
         players = replay[team]['players']
         for p in players:
-            if p['name'] == name:
+            if p['name'] == uploader:
                 return team
 
 
-def win_percentage(replays, name):
+def win_percentage(replays):
     wins = 0
     total = 0
     for replay in replays['list']:
         winner = winning_team(replay)
-        color = which_team(replay, name)
+        color = which_team(replay)
         total += 1
 
         if winner == color:

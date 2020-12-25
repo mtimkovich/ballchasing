@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """CLI entrypoint to the API code."""
 import argparse
 from datetime import date, timedelta
@@ -49,4 +50,4 @@ replays = ballchasing.replays({
     'replay-date-after': TIME_MAP[args.since],
 })
 
-stats.win_percentage(replays, 'DJSwerve')
+stats.win_percentage(replays)
